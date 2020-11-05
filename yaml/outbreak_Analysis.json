@@ -131,6 +131,7 @@
               "description": "Applicable outbreak.info category",
               "type": "array",
               "items": {
+                "type": "string",
                 "enum": [
                         "Clinical",
                         "Case Descriptions",
@@ -167,7 +168,7 @@
                         "Molecular Epidemiology",
                         "Informatics"
                       ]
-                  }
+              }
             },
             "analysisTechnique": {
                 "description": "A technique or technology used in a analysis.",
