@@ -122,62 +122,16 @@
             },
             "keywords": {
               "description": "keywords",
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              ]
+              "type": "array",
+              "items": {
+                 "type": "string"
+                 }
             },
             "topicCategory": {
               "description": "Applicable outbreak.info category",
-              "oneOf": [
-                {
-                  "enum": [
-                    "Clinical",
-                    "Case Descriptions",
-                    "Risk Factors",
-                    "Diagnosis",
-                    "Symptoms",
-                    "Rapid Diagnostics",
-                    "Antibody Detection",
-                    "Virus Detection",
-                    "Testing Prevalence",
-                    "Pathology/Radiology",
-                    "Forecasting",
-                    "Mechanism",
-                    "Virus Factors",
-                    "Host Factors",
-                    "Immunological Response",
-                    "Mechanism of Infection",
-                    "Mechanism of Transmission",
-                    "Prevention",
-                    "Public Health Interventions",
-                    "Individual Prevention",
-                    "Transmission",
-                    "Host/Intermediate Reservoirs",
-                    "Viral Shedding / Persistence",
-                    "Treatment",
-                    "Vaccines",
-                    "Pharmaceutical Treatments",
-                    "Medical Care",
-                    "Repurposing",
-                    "Biologics",
-                    "Behavioral Research",
-                    "Epidemiology",
-                    "Classical Epidemiology",
-                    "Molecular Epidemiology"
-                  ]
-                },
-                {
-                  "type": "array",
-                  "items": {
-                      "enum": [
+              "type": "array",
+              "items": {
+                "enum": [
                         "Clinical",
                         "Case Descriptions",
                         "Risk Factors",
@@ -210,25 +164,14 @@
                         "Behavioral Research",
                         "Epidemiology",
                         "Classical Epidemiology",
-                        "Molecular Epidemiology"
+                        "Molecular Epidemiology",
+                        "Informatics"
                       ]
                   }
-                }
-              ]
-
             },
             "analysisTechnique": {
                 "description": "A technique or technology used in a analysis.",
                 "oneOf": [
-                  {
-                    "$ref": "#/definitions/moreControlledVocabulary"
-                  },
-                  {
-                    "enum": [
-                        "predictive/forecasting models",
-                        "observation/visualization models"
-                    ]
-                  },
                   {
                     "type": "array",
                     "items": {
@@ -245,60 +188,34 @@
                 ]
               },
             "infectiousAgent": {
-            "description": "infectious agents(s) which are the focus of the dataset",
-            "oneOf": [{
+              "description": "infectious agents(s) which are the focus of the dataset",
+              "type": "array",
+              "items": {
                 "$ref": "#/definitions/miscControlledVocabulary"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/miscControlledVocabulary"
                 }
-              }
-            ]
-          },
+            },
             "infectiousDisease": {
               "description": "The disease or medical conditions caused by the infectious agent. Important as some agents may cause multiple diseases",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/diseaseVocabulary"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/diseaseVocabulary"
-                  }
-                }
-              ]
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/diseaseVocabulary"
+              }
             },
             "analysisTopic": {
               "description": "The underlying question, goal, or aim of the analysis",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/controlledVocabulary"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                        "$ref": "#/definitions/controlledVocabulary"
-                  }
-                }
-              ]
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/controlledVocabulary"
+              }
             },
             "author": {
               "description": "The author of this content or rating.",
               "anyOf": [
                 {
-                  "$ref": "#/definitions/person"
-                },
-                {
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/person"
                   }
-                },
-                {
-                  "$ref": "#/definitions/organization"
                 },
                 {
                   "type": "array",
@@ -312,16 +229,10 @@
               "description": "A secondary contributor to the CreativeWork or Event.",
               "oneOf": [
                 {
-                  "$ref": "#/definitions/person"
-                },
-                {
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/person"
                   }
-                },
-                {
-                  "$ref": "#/definitions/organization"
                 },
                 {
                   "type": "array",
@@ -335,16 +246,10 @@
               "description": "A maintainer of a Dataset, software package (SoftwareApplication), or other Project.",
               "oneOf": [
                 {
-                  "$ref": "#/definitions/person"
-                },
-                {
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/person"
                   }
-                },
-                {
-                  "$ref": "#/definitions/organization"
                 },
                 {
                   "type": "array",
@@ -356,71 +261,35 @@
             },
             "funding": {
               "description": "A person or organization that supports (sponsors) something through some kind of financial contribution.",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/funding"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/funding"
-                  }
-                }
-              ]
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/funding"
+              }
             },
             "citedBy": {
               "description": "A resource (publication, protocol, dataset, etc.) which was derived from this protocol",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/citation"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/citation"
-                  }
-                }
-              ]
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/citation"
+              }
             },
             "isBasedOn": {
               "description": "A resource (publication, protocol, dataset, etc) from which this analysis was derived",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/citation"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/citation"
-                  }
-                }
-              ]
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/citation"
+              }
             },
             "isRelatedTo": {
               "description": "Other resources related to, but not a derivative of nor derived from this analysis",
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/citation"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/citation"
-                  }
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/citation"
                 }
-              ]
             },
             "curatedBy": {
             "description": "The source from which this Dataset was identified for inclusion into Outbreak.info. Provides provenance for a resource which was curated by another.",
-            "anyOf": [{
-                "$ref": "#/definitions/citation"
-              },
-              {
-                "$ref": "#/definitions/person"
-              },
-              {
-                "$ref": "#/definitions/organization"
-              },
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -543,17 +412,10 @@
                       "type": "string"
                     },
                     "affiliation": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/definitions/baseOrgObject"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/definitions/baseOrgObject"
-                          }
-                        }
-                      ]
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/baseOrgObject"
+                      }
                     }
                   },
                   "required": [
@@ -578,17 +440,10 @@
                       "type": "string"
                     },
                     "affiliation": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/definitions/baseOrgObject"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/definitions/baseOrgObject"
-                          }
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/baseOrgObject"
                         }
-                      ]
                     }
                   },
                   "required": [
@@ -610,17 +465,10 @@
                     "$ref": "#/definitions/baseOrgObject"
                   },
                   "members": {
-                     "oneOf": [
-                        {
-                          "$ref": "#/definitions/memberObject"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/definitions/memberObject"
-                          }
+                     "type": "array",
+                     "items": {
+                        "$ref": "#/definitions/memberObject"
                         }
-                      ]
                   }
                 },
                 "required": [
@@ -695,17 +543,10 @@
                   },
                   "funder": {
                     "description": "name of the funding organization",
-                    "oneOf": [
-                  {
-                    "$ref": "#/definitions/baseOrgObject"
-                  },
-                  {
                     "type": "array",
                     "items": {
                       "$ref": "#/definitions/baseOrgObject"
                     }
-                  }
-                ]
                   },
                   "url": {
                     "type": "string",
