@@ -108,17 +108,10 @@
             },
             "assumption": {
               "description": "Statement of assumptions / limitations of the model",
-              "oneOf": [
-                {
+              "type": "array",
+                "items": {
                   "type": "string"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
                   }
-                }
-              ]
             },
             "keywords": {
               "description": "keywords",
