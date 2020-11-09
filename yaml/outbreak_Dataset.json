@@ -403,11 +403,7 @@
             "format": "date"
           },
           "evaluations":{
-              "type": "array",
-              "items": {
-                  "type": "string"
-              }
-            }
+              "type": "string",
           },
         "required": [
           "name",
