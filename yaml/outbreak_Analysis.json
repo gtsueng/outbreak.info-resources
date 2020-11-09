@@ -447,7 +447,7 @@
             "format": "date"
           },
             "evaluations":{
-            "anyOf":[
+              "anyOf":[
               {
                 "type": "array",
                 "items": {

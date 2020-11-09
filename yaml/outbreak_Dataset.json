@@ -401,8 +401,14 @@
             "description": "The date this resource was added into outbreak.info, or was updated in outbreak.info.",
             "type": "string",
             "format": "date"
-          }
-        },
+          },
+          "evaluations":{
+              "type": "array",
+              "items": {
+                  "type": "string"
+              }
+            }
+          },
         "required": [
           "name",
           "description",
@@ -721,6 +727,7 @@
     {"@id":"outbreak:curatedBy","@type":"rdf:Property","rdfs:comment":"The source from which this dataset was identified for inclusion into Outbreak.info. Provides provenance for a resource which was curated by another","rdfs:label":"curatedBy","owl:cardinality":"many","marginality":"recommended","rdfs:sameAs":{"@id":"schema:citation"},"schema:domainIncludes":{"@id":"outbreak:Dataset"},"schema:rangeIncludes":[{"@id":"outbreak:ClinicalTrial"},{"@id":"outbreak:Analysis"},{"@id":"outbreak:Publication"},{"@id":"outbreak:Dataset"},{"@id":"outbreak:Protocol"},{"@id":"schema:SoftwareApplication"},{"@id":"outbreak:Person"},{"@id":"outbreak:Organization"},{"@id":"schema:Thing"}]},
     {"@id":"outbreak:name","@type":"rdf:Property","rdfs:comment":"name of the source from which this dataset was identified for inclusion","rdfs:label":"name","owl:cardinality":"one","marginality":"recommended","rdfs:sameAs":{"@id":"schema:name"},"schema:domainIncludes":[{"@id":"outbreak:ClinicalTrial"},{"@id":"outbreak:Analysis"},{"@id":"outbreak:Publication"},{"@id":"outbreak:Dataset"},{"@id":"outbreak:Protocol"},{"@id":"schema:SoftwareApplication"},{"@id":"outbreak:Person"},{"@id":"outbreak:Organization"},{"@id":"schema:Thing"}],"schema:rangeIncludes":{"@id":"schema:Text"}},
     {"@id":"outbreak:curationDate","@type":"rdf:Property","rdfs:comment":"The date this resource was added to outbreak.info, or the date when this resource was updated in outbreak.info","rdfs:label":"curationDate","owl:cardinality":"one","marginality":"recommended","rdfs:sameAs":{"@id":"schema:releaseDate"},"schema:domainIncludes":{"@id":"outbreak:Dataset"},"schema:rangeIncludes":{"@id":"schema:Date"}},
+    {"@id":"outbreak:evaluations","@type":"rdf:Property","rdfs:comment":"One or more reviews, ratings, or other evaluations of this resource","rdfs:label":"evaluations","owl:cardinality":"many","marginality":"optional","schema:domainIncludes":{"@id":"outbreak:Analysis"},"schema:rangeIncludes":[{"@id":"schema:Review"},{"@id":"schema:Rating"},{"@id":"schema:AggregateRating"}]},
     {
       "@id": "outbreak:Protocol",
       "@type": "rdfs:Class",
