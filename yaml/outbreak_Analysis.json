@@ -741,26 +741,116 @@
           },
             "reviewObject":{
                 "description": "A review or descriptive evaluation of the resource",
-                "@type": "Review",
+                "@type": "schema:Review",
                 "type": "object",
                 "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the review"
+                  },
+                  "author": {
+                    "description": "The author of this content or rating.",
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/person"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/person"
+                      }
+                      },
+                      {
+                        "$ref": "#/definitions/organization"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/organization"
+                      }
                 }
+              ]
+            }
+                },
+                "required": [
+                  "name"
+                ]
             },
             "ratingObject":{
                 "description": "A rating or categorical evaluation of the resource",
-                "@type": "Rating",
+                "@type": "schema:Rating",
                 "type": "object",
                 "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the rating"
+                  },
+                  "author": {
+                    "description": "The author of this content or rating.",
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/person"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/person"
+                      }
+                      },
+                      {
+                        "$ref": "#/definitions/organization"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/organization"
+                      }
                 }
+              ]
+            }
+                },
+                "required": [
+                  "name"
+                ]
             },
             "aggregateRatingObject":{
                 "description": "A cumulative evaluation of the resource",
-                "@type": "AggregateRating",
+                "@type": "schema:AggregateRating",
                 "type": "object",
                 "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the aggregate rating"
+                  },
+                  "author": {
+                    "description": "The author of this content or rating.",
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/person"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/person"
+                      }
+                      },
+                      {
+                        "$ref": "#/definitions/organization"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/organization"
+                      }
+                }
+              ]
+            }
+                  },
+                "required": [
+                  "name"
+                ]
                 }
             }
-          }
       }
     },
     {"@id":"outbreak:url","@type":"rdf:Property","rdfs:comment":"The url of the item","rdfs:label":"url","owl:cardinality":"one","marginality":"required","rdfs:sameAs":{"@id":"schema:url"},"schema:domainIncludes":{"@id":"outbreak:Analysis"},"schema:rangeIncludes":{"@id":"schema:URL"}},{"@id":"outbreak:domainUrl","@type":"rdf:Property","rdfs:comment":"The domain name or main site on which webpage or specific url can be found","rdfs:label":"domainUrl","owl:cardinality":"one","marginality":"recommended","rdfs:sameAs":{"@id":"schema:url"},"schema:domainIncludes":{"@id":"outbreak:Analysis"},"schema:rangeIncludes":{"@id":"schema:URL"}},{"@id":"outbreak:identifier","@type":"rdf:Property","rdfs:comment":"An identifier associated with the analysis if available, otherwise one should be assigned","rdfs:label":"identifier","owl:cardinality":"one","marginality":"required","rdfs:sameAs":{"@id":"schema:identifier"},"schema:domainIncludes":{"@id":"outbreak:Analysis"},"schema:rangeIncludes":{"@id":"schema:Text"}},{"@id":"outbreak:doi","@type":"rdf:Property","rdfs:comment":"A DOI associated with the analysis if available","rdfs:label":"doi","owl:cardinality":"one","marginality":"recommended","rdfs:sameAs":{"@id":"schema:identifier"},"schema:domainIncludes":{"@id":"outbreak:Analysis"},"schema:rangeIncludes":{"@id":"schema:Text"}},{"@id":"outbreak:name","@type":"rdf:Property","rdfs:comment":"The name of the item.","rdfs:label":"name","owl:cardinality":"one","marginality":"required","rdfs:sameAs":{"@id":"schema:name"},"schema:domainIncludes":{"@id":"outbreak:Analysis"},"schema:rangeIncludes":{"@id":"schema:Text"}},{"@id":"outbreak:description","@type":"rdf:Property","rdfs:comment":"A description of the item.","rdfs:label":"description","owl:cardinality":"one","marginality":"required","rdfs:sameAs":{"@id":"schema:description"},"schema:domainIncludes":{"@id":"outbreak:Analysis"},"schema:rangeIncludes":{"@id":"schema:Text"}},{"@id":"outbreak:author","@type":"rdf:Property","rdfs:comment":"The author of this content or rating.","rdfs:label":"author","owl:cardinality":"many","marginality":"required","rdfs:sameAs":{"@id":"schema:author"},"schema:domainIncludes":{"@id":"outbreak:Analysis"},"schema:rangeIncludes":[{"@id":"outbreak:Person"},{"@id":"outbreak:Organization"}]},{"@id":"outbreak:name","@type":"rdf:Property","rdfs:comment":"The name of the author as provided by the resource","rdfs:label":"name","owl:cardinality":"one","marginality":"required","rdfs:sameAs":{"@id":"schema:name"},"schema:domainIncludes":[{"@id":"outbreak:Person"},{"@id":"outbreak:Organization"}],"schema:rangeIncludes":{"@id":"schema:Text"}},{"@id":"outbreak:affiliation","@type":"rdf:Property","rdfs:comment":"The affiliation of the author","rdfs:label":"affiliation","owl:cardinality":"many","marginality":"recommended","rdfs:sameAs":{"@id":"schema:affiliation"},"schema:domainIncludes":[{"@id":"outbreak:Person"},{"@id":"outbreak:Organization"}],"schema:rangeIncludes":{"@id":"schema:Text"}},
