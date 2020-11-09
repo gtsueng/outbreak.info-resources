@@ -403,8 +403,9 @@
             "format": "date"
           },
           "evaluations":{
-              "type": "string",
-          },
+              "type": "string"
+          }
+        },
         "required": [
           "name",
           "description",
